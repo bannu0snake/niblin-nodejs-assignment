@@ -1,6 +1,7 @@
-# About
-BlogSite API is the api for blogging website
-* Follows OpenAPI 3.0
+# How to run the server
 
-# Environment
-Only local / dev environment supported for this api
+1. To install node modules
+`npm install`
+
+2. To run the Server
+`npm run dev`
