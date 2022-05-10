@@ -21,12 +21,13 @@ const addBook = async (
     return await BookObject.save();
 };
 
-const updateBook = async (BookId, name, imageUrl, price, pages) => {
+const updateBook = async (BookId, name,author, imageUrl, price, pages) => {
     return await Book.updateOne(
         { _id: BookId },
         {
             $set: {
                 name,
+                author,
                 imageUrl,
                 price,
                 pages,

@@ -46,9 +46,11 @@ const updateBook = async (req, res) => {
             const response = await bookService.updateBook(
                 body.bookId,
                 body.name,
+                body.author,
                 body.price,
                 body.pages,
-                body.imageUrl
+                body.imageUrl,
+                req.user.id
             );
             return res.status(200).json(response);
         } else {

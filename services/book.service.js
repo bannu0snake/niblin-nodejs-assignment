@@ -5,7 +5,7 @@ const createBook = async (userId, author, name, price, pages, imageUrl) => {
     try {
         const published_date = new Date();
 
-        const post = await bookRepo.addBook(
+        const book = await bookRepo.addBook(
             userId,
             author,
             published_date,
@@ -16,8 +16,8 @@ const createBook = async (userId, author, name, price, pages, imageUrl) => {
         );
         return {
             status: true,
-            message: "Post created successfully",
-            data: post,
+            message: "book created successfully",
+            data: book,
             errors: {},
         };
     } catch (error) {
@@ -25,23 +25,33 @@ const createBook = async (userId, author, name, price, pages, imageUrl) => {
     }
 };
 
-const updateBook = async (bookId, name, price, pages, imageUrl) => {
+const updateBook = async (bookId, name,author, price, pages, imageUrl,userId) => {
     try {
-        const response = await bookRepo.updateBook(
-            bookId,
-            name,
-            imageUrl,
-            price,
-            pages
-        );
-        if (response) {
-            return {
-                status: true,
-                message: "Post updated successfully",
-                data: response,
-                errors: {},
-            };
+        const response1 = await bookRepo.findBookByBookId(bookId);
+        if (response1.userId.toString() === userId) {
+            const response = await bookRepo.updateBook(
+                bookId,
+                name,
+                author,
+                imageUrl,
+                price,
+                pages
+            );
+            if (response) {
+                return {
+                    status: true,
+                    message: "Book updated successfully",
+                    data: response,
+                    errors: {},
+                };
+            }
         }
+        return {
+            status: true,
+            message: "You can not update the book created by other user",
+            data: {},
+            errors: {},
+        };
     } catch (error) {
         throw error;
     }
@@ -50,9 +60,8 @@ const updateBook = async (bookId, name, price, pages, imageUrl) => {
 const deleteBook = async (bookId, userId) => {
     try {
         const response1 = await bookRepo.findBookByBookId(bookId);
-        console.log(response1,userId);
+        // console.log(response1,userId);
         if (response1.userId.toString() === userId) {
-
             const response2 = await bookRepo.deleteBook(bookId);
 
             return {
