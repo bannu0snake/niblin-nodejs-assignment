@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "921661da-09b0-41a4-a96e-9b4a4948e1c5",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"mahaboob\",\r\n    \"email\" : \"bannu@gmail.com\",\r\n    \"password\" : \"Bannu@123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"bannu@gmail.com\",\r\n    \"password\" : \"Bannu@123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI3OWQyOWM3ZWEwMjJmYWZkMWRmMGVmIn0sImlhdCI6MTY1MjE1MDk2MCwiZXhwIjoxNjg4MTUwOTYwfQ.odCrUY5U1z9m4UHAXFY-Ok1_aNPQNeTi5uBgsk8N9AY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"arihant 8\",\r\n    \"author\" : \"bruce wayne\",\r\n    \"price\" : 400.50,\r\n    \"pages\" : 1000,\r\n    \"imageUrl\":\"https://picsum.photos/200\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/book/create_book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"create_book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI3OWM2YWNiOTEzYjY2M2Y5MGE4Zjg3IiwibmFtZSI6Im1haGFib29iIn0sImlhdCI6MTY1MjE0ODQ5MywiZXhwIjoxNjg4MTQ4NDkzfQ.0oGt10tm7tYe4n11t3QFR-rJwuwywh4786toQJWqRf0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookId\" : \"6279ce87bb045d7c7efe9586\",\r\n    \"name\" : \"arihant 2\",\r\n    \"author\" : \"mahaboob\",\r\n    \"price\" : 500.50,\r\n    \"pages\" : 800,\r\n    \"imageUrl\":\"https://picsum.photos/200\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/book/update_book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"update_book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get book by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI3OWM2YWNiOTEzYjY2M2Y5MGE4Zjg3IiwibmFtZSI6Im1haGFib29iIn0sImlhdCI6MTY1MjE0ODQ5MywiZXhwIjoxNjg4MTQ4NDkzfQ.0oGt10tm7tYe4n11t3QFR-rJwuwywh4786toQJWqRf0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/book/get_book/6279cfd935be22a7e147fd2f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"get_book",
+						"6279cfd935be22a7e147fd2f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI3OWM2YWNiOTEzYjY2M2Y5MGE4Zjg3IiwibmFtZSI6Im1haGFib29iIn0sImlhdCI6MTY1MjE0ODQ5MywiZXhwIjoxNjg4MTQ4NDkzfQ.0oGt10tm7tYe4n11t3QFR-rJwuwywh4786toQJWqRf0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/book/delete_book/6279ce83bb045d7c7efe9584",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"delete_book",
+						"6279ce83bb045d7c7efe9584"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI3OWM2YWNiOTEzYjY2M2Y5MGE4Zjg3IiwibmFtZSI6Im1haGFib29iIn0sImlhdCI6MTY1MjE0ODQ5MywiZXhwIjoxNjg4MTQ4NDkzfQ.0oGt10tm7tYe4n11t3QFR-rJwuwywh4786toQJWqRf0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/book/get_all_books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"get_all_books"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
